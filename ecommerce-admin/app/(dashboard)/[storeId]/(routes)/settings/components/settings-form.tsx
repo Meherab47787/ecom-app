@@ -23,6 +23,8 @@ import { Form,
         } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlartModal } from "@/components/modals/alart-modal";
+import { ApiAlert } from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsFromProps {
     initialData: Store;
@@ -40,6 +42,7 @@ export const SettingsFrom:React.FC<SettingsFromProps> = ({
 
     const params = useParams();
     const router = useRouter();
+    const origin = useOrigin();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false)
@@ -123,6 +126,11 @@ export const SettingsFrom:React.FC<SettingsFromProps> = ({
                     </Button>
                 </form>
             </Form>
+            <Separator/>
+            <ApiAlert title="NEXT_PUBLIC_API_URL" 
+                      description={`${origin}/api/${params.storeId}`} 
+                      variant="public"
+                      />
         </>
     )
 }
