@@ -22,7 +22,7 @@ import { Form,
          FormMessage
         } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { AlartModal } from "@/components/modals/alart-modal";
+import { AlertModal } from "@/components/modals/alart-modal";
 import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from '@/components/ui/image-upload'
 
@@ -84,7 +84,7 @@ export const BillboardForm:React.FC<BillboardFormProps> = ({
             setLoading(true);
             await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
             router.refresh();
-            router.push('/');
+            router.push(`/${params.storeId}/billboards`)
             toast.success('Billboard deleated successfully!');
         } catch (error) {
             toast.error('Make sure you remove all categories using this billboard.')
@@ -96,7 +96,7 @@ export const BillboardForm:React.FC<BillboardFormProps> = ({
 
     return (
         <>
-            <AlartModal
+            <AlertModal
                 isOpen={open}
                 onClose={() => setOpen(false)}
                 onConfirm={onDelete}
@@ -160,7 +160,6 @@ export const BillboardForm:React.FC<BillboardFormProps> = ({
                     </Button>
                 </form>
             </Form>
-            <Separator/>
         </>
     )
 }
