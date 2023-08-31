@@ -22,7 +22,7 @@ import { Form,
          FormMessage
         } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { AlartModal } from "@/components/modals/alart-modal";
+import { AlertModal } from "@/components/modals/alart-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
 
@@ -83,7 +83,7 @@ export const SettingsFrom:React.FC<SettingsFromProps> = ({
 
     return (
         <>
-            <AlartModal
+            <AlertModal
                 isOpen={open}
                 onClose={() => setOpen(false)}
                 onConfirm={onDelete}
