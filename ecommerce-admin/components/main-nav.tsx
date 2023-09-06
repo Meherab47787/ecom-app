@@ -12,9 +12,9 @@ export function MainNav({
     const params = useParams();
     const routes = [
         {
-            href: `/${params.storeId}/settings`,
-            label: 'Settings',
-            active: pathname === `/${params.storeid}/settings`
+            href: `/${params.storeId}`,
+            label: 'Overview',
+            active: pathname === `/${params.storeid}`
         },
         {
             href: `/${params.storeId}/billboards`,
@@ -22,17 +22,22 @@ export function MainNav({
             active: pathname === `/${params.storeid}/billboards`
         },
         {
-            href: `/${params.storeId}`,
-            label: 'Overview',
-            active: pathname === `/${params.storeid}`
-        },
-        {
             href: `/${params.storeId}/categories`,
             label: 'Categories',
             active: pathname === `/${params.storeid}/categories`
         },
+        {
+            href: `/${params.storeId}/sizes`,
+            label: 'Sizes',
+            active: pathname === `/${params.storeid}/sizes`
+        },
+        {
+            href: `/${params.storeId}/settings`,
+            label: 'Settings',
+            active: pathname === `/${params.storeid}/settings`
+        },
     ]
-
+    
     return (
         <nav
             className={cn('flex items-center space-x-4 lg:space-x-6', className)}
