@@ -5,8 +5,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "mysql"
+// datasource db {
+//   provider = "mysql"
+//   url      = env("DATABASE_URL")
+//   relationMode = "prisma"
+// }
+
+datasource defaultdb {
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
   relationMode = "prisma"
 }
